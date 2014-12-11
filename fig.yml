@@ -1,0 +1,14 @@
+hub:
+  build: ./HubOverwriteConfig
+  ports:
+    - 4444:4444
+
+node:
+  image: selenium/node-chrome-debug:2.44.0
+  links:
+    - hub
+  ports:
+    - 5900
+  environment:
+    SCREEN_WIDTH: 1280
+    SCREEN_HEIGHT: 800
